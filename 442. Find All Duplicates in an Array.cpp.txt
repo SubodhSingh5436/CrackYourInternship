@@ -1,0 +1,22 @@
+class Solution {
+public:
+    vector<int> findDuplicates(vector<int>& nums) {
+        int n = nums.size();
+
+        unordered_map<int,int> ans;
+
+        vector<int> result;
+
+        for( int i=0; i<n; i++){
+            ans[nums[i]]++;
+        }
+
+        for(const auto& pair: ans){
+            if(pair.second>=2){
+                result.push_back(pair.first);
+            }
+        }
+
+        return result;
+    }
+};
